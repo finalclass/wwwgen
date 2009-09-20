@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:WindowedApplication xmlns:mx="http://www.adobe.com/2006/mxml" 
+	layout="absolute"
+	initialize="init()">
+	
+<mx:Script>
+	<![CDATA[
+		import flash.net.NetConnection;
+		import pl.wwwgen.dtos.SiteDO;
+		
+		import pl.wwwgen.dtos.*;
+		import pl.wwwgen.*;
+		
+		public var connection:NetConnection;
+		
+		public function init() : void {
+			connection = new NetConnection();
+			var rep:Responder = new Responder(onSuccess, onFailure);
+			connection.connect('http://localhost/amf.php');
+			connection.call('ElementService.getAll', rep);
+			function onSuccess(obj:Object) : void {
+				for(var i:String in obj) {
+					switch(obj[i].type) {
+						case 'Button':
+							Tree.add(new ButtonDO(obj[i]), this);
+						break;
+						case 'Gallery':
+							Tree.add(new GalleryDO(obj[i]), this);
+						break;
+						case 'Menu':
+							Tree.add(new MenuDO(obj[i]), this);
+						break;
+						case 'Photo':
+							Tree.add(new PhotoDO(obj[i]), this);
+						break;
+						case 'Site':
+							Tree.add(new SiteDO(obj[i]), this);
+						break;
+						case 'Text':
+							Tree.add(new TextDO(obj[i]), this);
+						break;
+						default:
+							//@TODO: throw exception
+						break;
+					}
+				}
+				Tree.elements = obj;
+				var site:SiteDO = Tree.find('site') as SiteDO;
+				site.title = 'NOWY TYTUL';
+				save();
+			}
+			
+			function onFailure(event:Event) : void {
+				
+			}
+		}
+		
+		
+		
+		public function save() : void {
+			var res:Responder = new Responder(onSuccess, onFailure)
+			connection.call('ElementService.save()',res );
+			
+			function onSuccess(obj:String) : void {
+				
+				trace(obj);
+			}
+			
+			function onFailure(event:Event) : void {
+				
+			}
+		}
+		
+	]]>
+</mx:Script>
+
+<mx:HTML id="output" />
+
+</mx:WindowedApplication>

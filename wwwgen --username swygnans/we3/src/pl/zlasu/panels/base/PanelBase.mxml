@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<mx:HBox xmlns:mx="http://www.adobe.com/2006/mxml"
+	initialize="initPanelBase()">
+	<mx:Script>
+		<![CDATA[
+		
+		import flash.events.MouseEvent;
+		import mx.controls.Button;
+		import pl.zlasu.utils.Broadcaster;
+		import pl.zlasu.ZEvent;
+		
+		public function initPanelBase() : void {
+			var okButton:Button = new Button();
+			okButton.label = 'O.K.';
+			okButton.addEventListener(MouseEvent.CLICK, onSave);
+			addChild(okButton);
+		}
+		
+		public function onSave(event:MouseEvent) : void {
+			Broadcaster.broadcast(new ZEvent(ZEvent.ATTRIBUTE_CHANGED));
+		}
+			
+		]]>
+	</mx:Script>
+</mx:HBox>

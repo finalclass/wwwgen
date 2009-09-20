@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<mx:WindowedApplication 
+	xmlns:mx="http://www.adobe.com/2006/mxml" 
+	layout="absolute"
+	initialize="init()" 
+	width="100%" height="100%">
+	<mx:Script>
+		<![CDATA[
+			
+			import pl.zlasu.FrontController;
+			
+			public function init() : void {
+				var front:FrontController = new FrontController();
+				addChild(front);
+			}
+			
+		]]>
+	</mx:Script>
+</mx:WindowedApplication>

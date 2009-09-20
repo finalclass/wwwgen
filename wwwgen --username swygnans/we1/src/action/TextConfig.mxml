@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cms:Action
+    xmlns:mx="http://www.adobe.com/2006/mxml"
+    xmlns:cms="cms.*"
+    xmlns:action="action.*"
+    width="100%" height="100%"
+    creationComplete="init()"
+>
+
+  <mx:Script>
+    <![CDATA[
+	     import cms.Model;
+	     import mx.controls.ComboBox;
+	     import mx.collections.ArrayCollection;
+
+	     public function init() : void {
+	       var combo:ComboBox = new ComboBox();
+	       combo.dataProvider = new ArrayCollection([
+		   {label: "Polski", data: "pl"},
+		   {label: "Angielski", data: "en"}
+		   ]);
+	       textEditor.toolbar.addChildAt(combo,0);
+	       textEditor.toolbar.addChild(new TypeChange());
+	       textEditor.toolbar.addChild(new NameChange());
+	     }
+    ]]>
+  </mx:Script>
+  <mx:Panel title="{Model.content.@label}" width="100%" height="100%">
+    <mx:RichTextEditor width="100%" height="100%" id="textEditor"/>
+  </mx:Panel>
+</cms:Action>

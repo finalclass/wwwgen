@@ -1,0 +1,22 @@
+<mx:FormItem
+    xmlns:mx="http://www.adobe.com/2006/mxml"
+    xmlns:cms="cms.*"
+    creationComplete="init()"
+>
+  <mx:Script>
+    <![CDATA[
+
+	     import cms.Model;
+
+	     public function init() : void {
+	       contentName.text = Model.content.@label;
+	     }
+	     public function nameChange(event:Event) : void {
+	       Model.o().setContentLabel(contentName.text);
+
+	     }
+    ]]>
+  </mx:Script>
+
+  <mx:TextInput  change="nameChange(event)" id="contentName"/>
+</mx:FormItem>
