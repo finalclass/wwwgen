@@ -1,0 +1,40 @@
+<mx:Panel 
+    xmlns:mx="http://www.adobe.com/2006/mxml"
+    xmlns:cms="cms.*"
+    title="Mapa Strony" 
+    width="250" height="100%"
+    creationComplete="init()"
+>
+  <mx:Script>
+    <![CDATA[
+
+	     public function init() : void {
+	       Model.getInstance().addEventListener(Model.DATA_CHANGED, update);
+	       Model.getInstance().addEventListener(Model.CONTENT_CHANGED, updateSelected);
+	     }
+
+	     public function update(event:Event) : void {
+	       tree.dataProvider = Model.dataProvider;
+	     }
+
+	     public function treeChange(event:Event) : void {
+	       var tmp:XML = Tree(event.target).selectedItem as XML;
+		   Model.content = tmp;
+	     }
+	     
+	     public function updateSelected(event:Event) : void {
+	       tree.selectedItem = Model.content;
+	     }
+
+    ]]>
+  </mx:Script>
+  <mx:Tree 
+      id="tree"
+      labelField="@label"
+      showRoot="true" 
+      width="100%" height="100%"
+      change="treeChange(event)"
+      >
+  </mx:Tree>
+  
+</mx:Panel>

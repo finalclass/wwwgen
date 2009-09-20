@@ -1,0 +1,41 @@
+<mx:FormItem
+    xmlns:mx="http://www.adobe.com/2006/mxml"
+    xmlns:cms="cms.*"
+    creationComplete="init()"
+>
+  <mx:Script>
+    <![CDATA[
+	     
+	     import mx.events.ListEvent;
+	     import mx.controls.ComboBox;
+	     import mx.collections.ArrayCollection;
+	     import cms.Model;
+
+	     public function init() : void {
+	       comboType.selectedIndex = getIndex(Model.content.@type);
+	     }
+	     
+	     public function getIndex(value:String) : int {
+	       var type:Object
+	       var index:int = 0;
+	       
+	       for each(type in Model.TYPES) {
+		 if(type.data == value) {
+		   return index;
+		 }
+		 index++;
+	       }
+	       return index;
+	     }
+	     
+	     public function comboTypeChange(event:Event) : void {
+	       var currentSelection:Object = ComboBox(event.target).selectedItem;
+	       if(currentSelection.data == Model.content.@type) {
+		 return;
+	       }
+	       Model.o().setContentType(currentSelection.data);
+	     }
+    ]]>
+  </mx:Script>
+  <mx:ComboBox id="comboType" close="comboTypeChange(event)" dataProvider="{Model.TYPES}"/>
+</mx:FormItem>

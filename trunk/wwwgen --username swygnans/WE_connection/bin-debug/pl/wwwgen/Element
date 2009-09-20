@@ -1,0 +1,78 @@
+package pl.wwwgen
+{
+	import pl.wwwgen.dtos.*;
+	
+	public class Element
+	{
+		public var id:String = '';
+		public var children:Array = [];
+		public var parentId:String = '';
+		
+		public function DataObject(obj:Object)
+		{
+			id = obj.id;
+			for(var i:String in obj.children) {
+				var element:DataObject;
+				
+				switch(obj.children[i].type) {
+					case 'Button':
+						element = new ButtonDO(obj.children[i]);  
+					break;
+					case 'Gallery':
+						element = new GalleryDO(obj.children[i]);
+					break;
+					case 'Menu':
+						element = new MenuDO(obj.children[i]);
+					break;
+					case 'Photo':
+						element = new PhotoDO(obj.children[i]);
+					break;
+					case 'Site':
+						element = new SiteDO(obj.children[i]);
+					break;
+					case 'Text':
+						element = new TextDO(obj.children[i]);
+					break;
+					default:
+						//@TODO: throw exception
+					break;
+				}
+				Tree.add(element, this);
+			}
+				
+			element.parentId = id;
+			children.push(element);
+		}
+
+		static public function populate(obj:Object) : DataObject {
+			var element:DataObject;
+			for(var i:String in obj) {
+				
+				switch(obj.type) {
+					case 'Button':
+						element = new ButtonDO(obj);  
+					break;
+					case 'Gallery':
+						element = new GalleryDO(obj);
+					break;
+					case 'Menu':
+						element = new MenuDO(obj);
+					break;
+					case 'Photo':
+						element = new PhotoDO(obj);
+					break;
+					case 'Site':
+						element = new SiteDO(obj);
+					break;
+					case 'Text':
+						element = new TextDO(obj);
+					break;
+					default:
+						//@TODO: throw exception
+					break;
+				}
+			}
+			return element;
+		}
+	}
+}

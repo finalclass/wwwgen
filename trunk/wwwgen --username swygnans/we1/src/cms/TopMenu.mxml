@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:MenuBar 
+    xmlns:mx="http://www.adobe.com/2006/mxml"
+    xmlns:cms="cms.*"
+    xmlns:action="action.*"
+    labelField="@label" 
+    width="100%"
+    change="dispatch(event)"
+    >
+  <mx:Script>
+    <![CDATA[
+	     
+	     import flash.filesystem.*;
+	     import mx.events.MenuEvent;
+	     
+	     public var fileChooser:File;
+
+	     public function dispatch(event:MenuEvent) : void {
+	       switch(String(event.item.@action)) {
+	       case "open":
+		 Model.openFile();
+		 break;
+	       case "import":
+		 break;
+	       case "save":
+		 break;
+	       case "export":
+		 break;
+	       case "close":
+		 break;
+	       }
+	     }
+
+    ]]>
+  </mx:Script>
+
+    <mx:XMLList id="dataProvider">
+
+      <menuitem label="Plik" >
+	<menuitem label="Otworz" action="open"/>
+	<menuitem label="Importuj z serwera" action="import"/>
+	<menuitem label="Zapisz" action="save"/>
+	<menuitem label="Eksportuj na server" action="export"/>
+	<menuitem type="separator"/>
+	<menuitem label="Zakoncz" action="close"/>
+      </menuitem>
+
+      <menuitem label="Opcje" >
+	<menuitem label="Zmien haslo" groupName="smgroup"/>
+	<menuitem label="..." groupName="smgroup"/>
+	<menuitem label="..." groupName="smgroup"/>
+      </menuitem>
+      <menuitem label="Pomoc">
+	<menuitem label="Pomoc" action="helpIndex"/>
+	<menuitem label="O programie" />
+	<meuitem label="Licencja" />
+      </menuitem>
+
+    </mx:XMLList>
+
+</mx:MenuBar>

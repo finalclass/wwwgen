@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<base:PanelBase 
+	xmlns:mx="http://www.adobe.com/2006/mxml"
+	xmlns:base="pl.zlasu.panels.base.*"
+	initialize="init()">
+		
+	<mx:Script>
+		<![CDATA[
+			
+		import pl.zlasu.Item;
+		import pl.zlasu.utils.Broadcaster;
+		import mx.binding.utils.BindingUtils;
+		import pl.zlasu.elements.ZText;
+		
+		[Bindable]
+		public var parentItem:ZText;
+		
+		public function init() : void {
+			BindingUtils.bindProperty(parentItem, 'text', textInput, 'text');
+		}
+		
+		]]>
+	</mx:Script>
+		
+	<mx:Label text="tekst:"/>
+	<mx:TextInput  id="textInput" text="{parentItem.text}" />
+	
+</base:PanelBase>

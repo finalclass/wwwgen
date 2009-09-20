@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cms:Action
+    xmlns:mx="http://www.adobe.com/2006/mxml"
+    xmlns:cms="cms.*"
+    xmlns:action="action.*"
+    width="100%" height="100%"
+>
+
+  <mx:Script>
+    <![CDATA[
+	     import cms.Model;
+    ]]>
+  </mx:Script>
+  <mx:Panel title="{Model.content.@label}" width="100%" height="100%">
+    <mx:TabNavigator width="100%" height="100%">
+
+      <mx:VBox label="Zawartosc">
+	<action:ElementsList/>
+      </mx:VBox>
+
+      <mx:VBox label="Ustiawienia" width="100%">
+	<mx:Form>
+	  <mx:FormHeading label="Ustawienia"/>
+	  <action:TypeChange label="Wyswietlaj jako:"/>
+	  <action:NameChange label="Zmien nazwe:"/>
+	</mx:Form>
+	
+	<action:CreateNode />
+      </mx:VBox>
+
+    </mx:TabNavigator>
+  </mx:Panel>
+</cms:Action>

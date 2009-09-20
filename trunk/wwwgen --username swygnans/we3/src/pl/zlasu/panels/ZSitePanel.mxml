@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<base:PanelBase 
+	xmlns:mx="http://www.adobe.com/2006/mxml"
+	xmlns:base="pl.zlasu.panels.base.*"
+	initialize="init()">
+	
+	<mx:Script>
+		<![CDATA[
+		
+		import mx.binding.utils.BindingUtils;
+			
+		import pl.zlasu.elements.ZSite;
+		
+		[Bindable]
+		public var parentItem:ZSite;
+		
+		public function init() : void {
+			BindingUtils.bindProperty(parentItem, 'title', title, 'text');
+			BindingUtils.bindProperty(parentItem, 'url', url, 'text');
+			BindingUtils.bindProperty(parentItem, 'backgroundColor', backgroundColorInput, 'text');
+		}
+		]]>
+	</mx:Script>
+	
+	<mx:Label text="Tytuł strony"/>
+	<mx:TextInput id="title" text="{parentItem.title}" />
+	
+	<mx:Label text="adres strony"/>
+	<mx:TextInput id="url" text="{parentItem.url}"/>
+	
+	<mx:Label text="kolor tła"/>
+	<mx:TextInput id="backgroundColorInput" text="{parentItem.backgroundColor}"/>
+</base:PanelBase>

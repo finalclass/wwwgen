@@ -1,0 +1,185 @@
+/*  
+Theme Name: HeyLucy
+Theme URI: http://www.infocreek.com/webdesign/heylucy.html
+Description: HeyLucy Theme designed by <a href="http://www.infocreek.com">InfoCreek </a>
+Version: 1.0
+Author: InfoCreek
+Author URI: http://www.infocreek.com/
+
+The CSS, XHTML and design is released under the Creative Common Attribution 3.0 License (http://creativecommons.org/licenses/by/3.0/), which means you can use and modify it for any purpose.  
+ 
+By downloading our themes, you agree that you: 
+
+ 1) Can not resell the theme
+ 2) You may use and modify the theme but the footer link back to InfoCreek.com must be retained.
+ 3) You may use the theme on personal or commercial projects as far as #2 above is met 
+
+
+*/
+
+* {margin:0px; padding:0px;}
+body {background: url(/images/Site/top-bg.jpg) center top repeat-x; text-align:center; font-size: 12px; color:#293547; font-family: Verdana, Arial, Helvetica, sans-serif;}
+
+img {border: medium none;}
+blockquote {margin:5px 0; padding: 0px 10px; text-align: left; border:1px solid #bed35b; background:#ffffff url(/images/Site/blockquote-bg.gif) left bottom repeat-x;}
+blockquote blockquote {margin:5px 0; padding: 0px 10px; text-align: left; border-left:medium none; border-right:medium none; background:transparent none;}
+a {text-decoration:none; color:#004e8c; border: 0px;}
+a:hover {text-decoration:underline; border: 0px;}
+a.u {text-decoration:underline; border: 0px;}
+a.u:hover {text-decoration:none; border: 0px;}
+a.n, a.n:hover {text-decoration:none; border: 0px;}
+a:focus, a:active { outline: none;}
+
+p {padding:7px 0;  line-height: 17px;}
+.border {border:1px solid red;}
+h1, h2, h3, h4 { font-family: "Trebuchet MS";}
+hr { border-left:0px solid #abb0b5; border-right:0px solid #abb0b5; border-top:1px dotted #abb0b5; border-bottom:0px solid #abb0b5; height: 1px;  }
+
+input { font-family: 'Verdana'; color: #212121; font-size: 11px;}
+textarea { font-family: 'Verdana'; color: #212121; font-size: 11px;}
+select { font-family: 'Verdana'; color: #212121; font-size: 11px;}
+
+.leftbg {position:absolute; left:0px; top:0px; width:50%; height:142px; margin-left:-480px; background: url(/images/Site/left-top-bg.jpg) 100% -1px no-repeat;}
+.rightbg {position:absolute; right:0px; top:0px; width:50%; height:142px; background: url(/images/Site/right-top-bg.jpg) 480px -1px no-repeat;}
+#head {position:relative; width:960px; height:96px; margin:0 auto; text-align:left; background: url(/images/Site/head-bg.gif) left top repeat-x; overflow:visible; z-index:1000;}
+.head-left {position:relative; width:100%; height:96px; background: url(/images/Site/head-left-bg.jpg) left top no-repeat;}
+	.logo {position:absolute; left:35px; top:50px; font: 28px/120% Trebuchet MS; color:#ffffff; z-index:100;}
+	.logo a, .logo a:hover {color:#ffffff; text-decoration:none;}
+	.logo a b {color:#81b20b;}
+	.searchbox {position:absolute; right:0px; top:0px; width:417px; height:95px; color:#ffffff;  background: url(/images/Site/search-bg.gif) left top repeat-x;}
+	.sb-right {width:100%; height:95px; color:#ffffff;  background: url(/images/Site/search-right-bg.jpg) right top no-repeat; overflow:hidden;}
+	.sb-left {height:95px; padding:32px 0 0 55px; color:#ffffff;  background: url(/images/Site/search-left-bg.jpg) left top no-repeat;}
+	#searchform .label {padding:0px 0px 2px 5px; color:#ffffff;}
+	#searchform .search-but {width:61px; height:61px; position:absolute; right:36px; top:32px; z-index:10;}
+	#searchform .search-but input {position:absolute; border:none; background:transparent url(/images/Site/go-button.jpg) left top no-repeat; color:#000000; width:61px; height:61px; text-indent:-900em; line-height:0px;}
+	#searchform .search {position:relative; width:271px; height:20px; background: url(/images/Site/search-input.jpg) left top no-repeat; z-index:20;}
+	#searchform .search #s {border:none; background:transparent; color:#293547; width:263px; height:auto !important; margin:2px 0 0 3px;}
+	
+	#menu {position:absolute; right:0px; bottom:-40px; width:407px; height:41px; background: url(/images/Site/menu.jpg) left top no-repeat; z-index:2000; overflow:hidden;}
+	#menu ul {position:relative; list-style:none; padding:0 0 0 10px; z-index:1000;}
+	#menu ul li {position:relative; display:block; float:left; background: url(/images/Site/menu-devider.gif) left top no-repeat; padding:0 12px; z-index:1000;}
+	#menu ul li.home {background:none;}
+	* html #menu ul li {display:inline;}
+	#menu ul li a {display:block; line-height: 40px;}
+	* html #menu ul li a {display:inline; padding-top:3px; padding-bottom:3px;}
+
+#content {position:relative; left:0px; top:0px; width:961px; margin:-1px auto 0 auto; text-align:left; z-index:100;}
+* html #content {width:960px;}
+.cont-border-white {position:relative; border:1px solid #ffffff; border-top:none; z-index:100;}
+.cont-border-grey {position:relative; border:1px solid #bcd0de; border-top:none; background:#ffffff url(/images/Site/bord-devider.gif) 551px 0px repeat-y; z-index:100;}
+*:first-child+html .cont-border-grey {background-position: 552px 0px;}
+	#main {position:relative; float:left; width:551px; background: url(/images/Site/main-top-bg.gif) 0px 1px repeat-x;}
+	* html #main {width:550px; overflow:hidden;}
+	.content {position:relative; padding:0px 0px 22px 0px; background: url(/images/Site/main-top-left-grad.jpg) 100% 1px no-repeat;}
+	.pagetitle {text-align:center; padding-top:10px;}
+	.post {padding:22px 10px 0 0; border-bottom:1px solid #99ba09;}
+	.post .date {position:relative; left:-1px; font:bold 12px/14px Georgia; color:#293547; padding:0px; margin:0px; float:left; text-align:center; text-transform:lowercase; width:32px; height:37px; background: url(/images/Site/date-bg.gif) no-repeat;}
+	.post .date:first-line {font:normal 18px/22px Georgia; color:#ffffff;}
+	.post .title {position:relative; border:1px solid #90b7d6; border-left:none; border-right:none; padding:0px; background-color:#e1ebf4; margin-left:40px;}
+		.bord-l {position:relative; background: url(/images/Site/bord-devider.gif) left top repeat-y;}
+		.bord-r {position:relative; background: url(/images/Site/bord-devider.gif) right top repeat-y;}
+		.tit-rb {position:relative; background: transparent url(/images/Site/title-rb.gif) right bottom no-repeat; margin:-1px 0;}
+		.tit-lb {position:relative; background: transparent url(/images/Site/title-lb.gif) left bottom no-repeat;}
+		.tit-rt {position:relative; background: transparent url(/images/Site/title-rt.gif) right top no-repeat;}
+		.tit-lt {position:relative; background: transparent url(/images/Site/title-lt.gif) left top no-repeat; padding:0 7px;}
+	.content h1 {font: 20px "Trebuchet MS"; color:#6e970c; letter-spacing:-1px;}
+	.content h2 {font: bold 18px "Trebuchet MS"; color:#6e970c;}
+	.content h3 {font: bold 16px "Trebuchet MS"; color:#6e970c;}
+	.post h1 a, .post h1 a:hover {color:#6e970c; text-decoration:none;}
+	.post p.author {color:#293547; padding:0px 0px 0px 0px; margin-top:-5px; font-size:11px;}
+	.post p.author a {color:#005faa;}
+	.entry {padding:10px 10px 10px 20px; display: inline-block; overflow: hidden;}
+	.entry img {border:1px solid #99ba09; margin:5px; max-width: 100%;}
+.entry img.left {
+	float:left;
+	margin-right:10px;
+}
+
+.entry img.right {
+	float:right;
+	margin-left:10px;
+}
+	.post .postmetadata {padding:2px 20px 2px 20px; text-align:right; font-size:11px;}
+	.post .postmetadata span {padding:0px 0px 0px 17px; background: url(/images/Site/comment-ico.gif) 0 2px no-repeat;}
+	.post .postmetadata span span {padding:0px 0px 0px 0px; background: none;}
+	.trackback {background:#e1ebf4; border:1px solid #90b7d6; margin:10px 10px 10px 20px; padding:5px; font-size:11px;}
+	.wp-pagenavi {padding:10px 20px 0px 20px; text-align:right;}
+	.content h2.center {padding:25px 0; text-align:center;}
+#main ul {list-style:none; padding:5px 20px;}
+#main ol {padding:5px 35px;}
+#main ul li {display:block; padding:2px 0px 2px 12px;  background: url(/images/Site/marker.gif) 0px 7px no-repeat;}
+
+#comments {position:relative; padding:20px 20px;}
+#comments h4 {font:bold 14px Trebuchet MS; color:#293547; padding:0px 0px 5px 20px;}
+#comments ol, ol.nocomments {list-style:none; padding:0px;}
+#comments ol li, ol.nocomments li  {display:block; background:#eef3e6; border:1px solid #bed35b; margin-bottom:10px; background: url(/images/Site/blockquote-bg.gif) left bottom repeat-x;}
+#comments ol li .rb {position:relative; background: transparent url(/images/Site/comm-rb.gif) right bottom no-repeat; margin:-1px;}
+#comments ol li .lb {position:relative; background: transparent url(/images/Site/comm-lb.gif) left bottom no-repeat;}
+#comments ol li .rt {position:relative; background: transparent url(/images/Site/comm-rt.gif) right top no-repeat;}
+#comments ol li .lt {position:relative; background: transparent url(/images/Site/comm-lt.gif) left top no-repeat; padding:8px 10px;}
+
+	.comm-number {position:relative; float:left; width:32px; height:33px; background: url(/images/Site/comm-number.gif) 0px 0px no-repeat; text-align:center; font:italic 16px/24px Verdana; color:#005faa; margin-right:5px;}
+	.grav {position:relative; float:right; width:32px; height:33px; overflow:hidden;}
+	.grav img {width:32px;}
+#comments big {font-size: 12px; color: #7db100; text-transform: none; font-weight:bold;}
+#comments small {font-size: 11px;}
+#comments .comment {position:relative; color:#212121; padding:3px 3px; border-top:1px solid #99ba09; clear:both}
+
+
+#response {position:relative; padding:10px 20px;}
+#response h4 {font:bold 14px Trebuchet MS; color:#293547; padding:0px 0px 5px 0px;}
+#response .form {position:relative; display:block; background:#e1ebf4; border:1px solid #90b7d6; border-left:medium none; border-right:medium none;}
+* html #response .form {width:100%;}
+* html #response .form .tit-rt {width:100%;}
+#response .form .tit-lt {padding:8px 10px;}
+
+	.inputs {position:relative; width:240px; float:left;}
+		.input {position:relative; margin-bottom:5px;}
+		.input b {color:#005faa;}
+		.input input {background:#f6f9fc; border:1px solid #498dc2; width:95%; padding:2px;}
+	.message {position:relative; width:240px; text-align:left; float:right;}
+	.message .input {margin-bottom:0px; text-align:center;}
+	.message textarea {background:#f6f9fc; border:1px solid #498dc2; width:97%; height:95px; padding:1px;}
+	.submit {text-align:right;}
+	.submit input {background:url(/images/Site/submit-but.gif) no-repeat; font-weight:bold; font-size:11px; color:#ffffff; margin-top:5px; width:130px; height:20px; border:medium none; text-align:center;}
+	* html .submit input {margin-top:0px;}
+	*:first-child+html .submit input {margin-top:0px;}
+	
+	
+
+#sidebars {position:relative; width:385px; float:right; margin-right:10px; margin-top:50px;}
+* html #sidebars {margin-right:5px;}
+#sidebars #searchform #s {border:1px solid #212121; background:#689330; background-image:none; color:#ffffff; width:100%; height:auto !important; margin:0px 0 0 0px;}
+#sidebar-left {position:relative; width:190px; float:left;}
+#sidebar-right {position:relative; width:190px; float:right;}
+#sidebars ul {position:relative; padding:0px; list-style:none;}
+#sidebars ul li {background: url(/images/Site/sb-bg.gif) right top repeat-y; margin-bottom:10px;}
+#sidebars ul li h2 {font:bold 14px/22px Trebuchet MS; text-indent:23px; height:20px; overflow:hidden; color:#ffffff; background:#81b20b url(/images/Site/sb-left-tit.gif) left top no-repeat; text-align:center; text-transform:uppercase;}
+#sidebars ul li ul {padding:0px 5px 5px 5px; list-style:none; background: url(/images/Site/sb-bot-bg.gif) right bottom no-repeat; overflow:hidden;}
+#sidebars ul li ul li {padding:4px 0px 6px 3px; margin-bottom:0px; margin-top:-1px; background:none; border-top:1px dotted #6e970c;}
+#sidebars ul li ul li a {display:block; color:#004e8c; padding:0px 0px 0px 10px; background: url(/images/Site/list-green.gif) 0px 7px no-repeat;}
+#sidebars ul li ul li ul {padding:3px 0 0px 10px; margin-top:5px; list-style:none; background:none; border-top:1px dotted #6e970c;}
+#sidebars ul li ul li ul li {padding:2px 0 2px 0px; border:none;}
+
+#wp-calendar {width:100%;}
+#recentcomments li a {background:none !important; padding:0 0 0 0;}
+
+a:hover abbr {border:none;}
+
+#footer {position:relative; width:100%; margin-top:-200px; height:300px; text-align:center; font-size:11px; background: url(/images/Site/bottom-grad.gif) left bottom repeat-x; z-index:1;}
+.foot {position:relative; width:960px; margin:0 auto; text-align:right;}
+.copy {padding:210px 30px 0px 30px;}
+
+
+
+
+
+
+.white {color:#ffffff;}
+.up {text-transform:uppercase;}
+.center {text-align:center;}
+.l, .alignleft {float:left;}
+.r, .alignright {float:right;}
+.textleft {text-align:left !important;}
+.clear {clear:both;}
+

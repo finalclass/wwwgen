@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas
+    xmlns:mx="http://www.adobe.com/2006/mxml"
+    xmlns:cms="cms.*"
+    xmlns:action="action.*"
+    width="100%" height="100%" 
+
+    creationComplete="init()"
+>
+  <mx:Script>
+    <![CDATA[
+	     import action.*;
+
+	     [Bindable]
+	     public var action:Action;
+
+	     public function init() : void {
+	       Model.getInstance().addEventListener(Model.CONTENT_CHANGED, update);
+	     }
+
+	     public function update(event:Event) : void {
+	       removeAllChildren();
+	       switch(String(Model.content.@type)) {
+	       case "photo":
+		 action = new PhotoConfig();
+		 addChild(action);
+		 break;
+	       case "gallery":
+		 break;
+	       case "list":
+		 break;
+	       case "folder":
+		 action = new FolderConfig();
+		 addChild(action);
+		 break;
+	       case "text":
+		 action = new TextConfig();;
+		 addChild(action);
+		 break;
+	       }
+	     }
+
+    ]]>
+  </mx:Script>
+</mx:Canvas>

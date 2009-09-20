@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<base:PanelBase
+	xmlns:mx="http://www.adobe.com/2006/mxml"
+	xmlns:base="pl.zlasu.panels.base.*"
+	initialize="init()">
+		
+	<mx:Script>
+		<![CDATA[
+			
+		import pl.zlasu.elements.ZImage;
+		import mx.binding.utils.BindingUtils;
+			
+		[Bindable] public var parentItem:ZImage;
+		
+		public function init() : void {
+			BindingUtils.bindProperty(parentItem, 'width', widthInput, 'text');
+			BindingUtils.bindProperty(parentItem, 'height', heightInput, 'text');
+		}
+			
+			
+		]]>
+	</mx:Script>
+	
+	<mx:Label text="Szerokość" />
+	<mx:TextInput text="{parentItem.width}" id="widthInput"/>
+	
+	<mx:Label text="Wysokość"/>
+	<mx:TextInput text="{parentItem.height}" id="heightInput"/>
+		
+</base:PanelBase>

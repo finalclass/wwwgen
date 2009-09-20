@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Form
+    xmlns:mx="http://www.adobe.com/2006/mxml"
+    xmlns:cms="cms.*"
+    xmlns:action="action.*"
+    creationComplete="init()"
+>
+
+  <mx:Script>
+    <![CDATA[
+	     import cms.Model;
+	     
+	     public function init() : void {
+
+	     }
+	     
+	     public function addNode(event:Event) : void {
+	       var newNode:XML = new XML(<node></node>);
+	       newNode.@label = nodeName.text;
+	       newNode.@type = nodeType.selectedItem.data;
+	       Model.o().addNodeToContent(newNode);
+	       info.text = "Pomyslnie utworzono element " + nodeName.text;
+	     }
+    ]]>
+  </mx:Script>
+
+  <mx:FormHeading label="Utworz element" />
+  <mx:FormItem label="Nazwa">
+    <mx:TextInput id="nodeName" />
+  </mx:FormItem>
+  <mx:FormItem label="Wyswietlany jak:">
+    <mx:ComboBox id="nodeType" dataProvider="{Model.TYPES}" />
+  </mx:FormItem>
+  <mx:HBox>
+    <mx:Button click="addNode(event)" label="Utworz" />
+    <mx:Label id="info"/>
+  </mx:HBox>
+</mx:Form>

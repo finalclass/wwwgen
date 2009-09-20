@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cms:Action
+    label="{current.@label}" 
+    xmlns:mx="http://www.adobe.com/2006/mxml" 
+    xmlns:cms="cms.*" 
+    xmlns:action="action.*"
+    creationComplete="init()"
+    width="100%"
+    rollOver="onRollOver(event)"
+    rollOut="onRollOut(event)"
+>
+  <mx:Script>
+    <![CDATA[
+	     import cms.Model;
+	     import mx.controls.Alert;
+	     import mx.events.CloseEvent;
+	     
+	     [Bindable]
+	     public var current:XML;
+
+	     public static var OVERIVEW:String = "Podglad";
+	     
+	     public function init() : void {
+	       addEventListener(MouseEvent.CLICK, imClicked);
+	     }
+	     
+	     public function imClicked(event:MouseEvent) : void {
+	     }
+
+	     public function onRollOver(event:MouseEvent) : void {
+	       setStyle("backgroundColor", "#aaddff");
+	     }
+	     public function onRollOut(event:MouseEvent) : void {
+	       setStyle("backgroundColor", "#FFFFFF");
+	     }
+
+	     public function overview(event:MouseEvent) : void {
+	       Model.getInstance().content = current;
+	     }
+	     public function moveUp(event:MouseEvent) : void {
+	       var index:int = current.childIndex();
+	       if(index-1 < 0) { 
+		 return;
+	       }
+	       var parent:XML = current.parent()
+	       if(parent.node[index-1] == null) {
+		 return;
+	       }
+	       var tmp:XML = parent.node[index-1].copy();
+	       parent.node[index-1] = current.copy();
+	       parent.node[index] = tmp;
+
+	     }
+	     public function moveDown(event:MouseEvent) : void {
+	       var index:int = current.childIndex();
+	       var parent:XML = current.parent()
+	       if(parent.node[index+1] == null) {
+		 return;
+	       }
+	       var tmp:XML = parent.node[index+1].copy();
+	       parent.node[index+1] = current.copy();
+	       parent.node[index] = tmp;
+
+	     }
+
+	     public function askBeforeRemove(event:MouseEvent) : void {
+	       
+	       Alert.show('Czy na pewno chcesz usunac element?' ,'Usunac?',  
+			  Alert.OK | Alert.CANCEL, 
+			  this, remove, null, Alert.OK
+			  );
+	     }
+	     public function remove(event:CloseEvent) : void {
+	       if(event.detail == Alert.CANCEL) {
+		 return;
+	       }
+	       var index:int = current.childIndex();
+	       var parent:XML = current.parent()
+	       delete parent.node[index];
+	     }
+    ]]>
+  </mx:Script>
+<mx:HBox>
+<mx:Label text="{current.@label}" width="150"/>
+<mx:Button label="Podglad" width="100%" click="overview(event)"/>
+<mx:Button label="W gore" width="100%" click="moveUp(event)"/>
+<mx:Button label="W dol" width="100%" click="moveDown(event)"/>
+<mx:Button label="Usun" width="100%" click="askBeforeRemove(event)"/>
+</mx:HBox>
+</cms:Action>
